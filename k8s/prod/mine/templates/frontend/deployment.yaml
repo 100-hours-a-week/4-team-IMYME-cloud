@@ -55,6 +55,11 @@ spec:
           {{- end }}
           {{- end }}
 
+          {{- with .Values.frontend.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+
           resources:
             requests:
               cpu: {{ .Values.frontend.resources.requests.cpu | quote }}
