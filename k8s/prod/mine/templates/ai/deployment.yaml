@@ -55,6 +55,11 @@ spec:
           {{- end }}
           {{- end }}
 
+          {{- with .Values.ai.env }}
+          env:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+
           resources:
             requests:
               cpu: {{ .Values.ai.resources.requests.cpu | quote }}
